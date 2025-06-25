@@ -5,7 +5,7 @@ import NavBar from "../NavBar/NavBar";
 
 function Root(props) {
     return (
-        <div>
+        <div className="max-w-6xl mx-auto">
            <NavBar></NavBar>
            <Outlet></Outlet>
            <Footer></Footer>
