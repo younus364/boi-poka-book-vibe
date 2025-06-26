@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToStoreReadList } from "../../utility/addToDb";
 
 
 function BookDetails(props) {
@@ -10,8 +11,8 @@ function BookDetails(props) {
     const book = data.find(book => book.bookId === id)
     const {author,image, bookName,category,publisher ,review,tags,rating,totalPages,yearOfPublishing} = book;
 
-    const handelMarkAsRead = ()=>{
-
+    const handelMarkAsRead = (id)=>{
+        addToStoreReadList(id)
     }
    
     return (
@@ -46,7 +47,7 @@ function BookDetails(props) {
       <p>Rating: </p>
       <p>{rating}</p>
       </div>
-      <button onClick={handelMarkAsRead} className="btn btn-accent btn-outline mr-4">Read</button>
+      <button onClick={()=>handelMarkAsRead(bookId)} className="btn btn-accent btn-outline mr-4">Read</button>
       <button className="btn btn-accent">WishList</button>
     </div>
   </div>
